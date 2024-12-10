@@ -1,35 +1,19 @@
 import Link from "next/link";
+import CheeseburgerDashboard from "@/components/CheeseburgerDashboard";
 
-const HomePage = () => {
-  // Simulated ingredient prices in USD
-  const ingredientPrices = {
-    beef: 1.5,
-    cheese: 0.5,
-    lettuce: 0.3,
-    bun: 0.4,
-  };
-
-  const cheeseburgerCost = (
-    ingredientPrices.beef +
-    ingredientPrices.cheese +
-    ingredientPrices.lettuce +
-    ingredientPrices.bun
-  ).toFixed(2);
-
+export default function HomePage() {
   return (
-    <div>
-      <h1>Cheeseburger Price Index</h1>
-      <p>Real-time price based on ingredient costs.</p>
-      <p>
-        <strong>Cost of one cheeseburger:</strong> ${cheeseburgerCost}
-      </p>
+    <div className="p-8 max-w-6xl mx-auto space-y-8">
+      <CheeseburgerDashboard />
 
-      {/* Link to the Cheezburgz token page */}
-      <p>
-        <Link href="/cheezburgz">Learn more about Cheezburgz token</Link>
-      </p>
+      <div className="text-center mt-8">
+        <Link
+          href="/cheezburgz"
+          className="inline-block bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition-colors"
+        >
+          Learn more about Cheezburgz token →
+        </Link>
+      </div>
     </div>
   );
-};
-
-export default HomePage;
+}
