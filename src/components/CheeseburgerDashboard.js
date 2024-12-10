@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import PriceTrendChart from './PriceTrendChart';
+import PriceTrendChart from './priceTrendChart.tsx';  // Add .tsx extension
 
 const COLORS = {
     'Ground Beef': '#8B4513',
