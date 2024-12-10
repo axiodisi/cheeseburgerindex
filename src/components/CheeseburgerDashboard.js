@@ -106,7 +106,6 @@ const CheeseburgerDashboard = () => {
                                         </div>
                                         <div className="flex gap-4 items-center w-1/4 md:w-auto">
                                             <span className="text-sm font-medium text-slate-600">${item.servingCost.toFixed(3)}</span>
-                                            <span className="text-sm text-slate-400 w-16 text-right">{item.percentage}%</span>
                                         </div>
                                     </div>
                                 ))}
@@ -122,16 +121,10 @@ const CheeseburgerDashboard = () => {
                                         className="flex flex-wrap items-center justify-between p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
                                         <div className="flex items-center gap-3 w-3/4 md:w-auto">
                                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="text-sm font-medium text-slate-700">
-                                                {item.name}
-                                                <span className="text-slate-400 ml-1">
-                                                    ({item.servingWeight} {item.servingUnit})
-                                                </span>
-                                            </span>
+                                            <span className="text-sm font-medium text-slate-700">{item.name}</span>
                                         </div>
                                         <div className="flex gap-4 items-center w-1/4 md:w-auto">
                                             <span className="text-sm font-medium text-slate-600">${item.servingCost.toFixed(3)}</span>
-                                            <span className="text-sm text-slate-400 w-16 text-right">{item.percentage}%</span>
                                         </div>
                                     </div>
                                 ))}
