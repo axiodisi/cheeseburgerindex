@@ -134,8 +134,10 @@ const CheeseburgerDashboard = () => {
                 </div>
 
                 {/* Price Trend Chart Section */}
-                <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <PriceTrendChart />
+                <div className="bg-white rounded-2xl shadow-sm overflow-hidden p-6 md:p-12">
+                    <div className="w-full h-80">
+                        <PriceTrendChart /> {/* Ensure the chart has sufficient height */}
+                    </div>
                 </div>
             </div>
         </div>
