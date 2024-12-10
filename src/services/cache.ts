@@ -18,6 +18,14 @@ export function getCachedPrices(): IngredientPrice[] | null {
   if (Date.now() - priceCache.timestamp > CACHE_DURATION) return null;
   return priceCache.currentPrices;
 }
+// Add this to @/services/cache.ts
+export function setCachedPrices(prices: IngredientPrice[]): void {
+  priceCache = {
+    ...priceCache,
+    currentPrices: prices,
+    timestamp: Date.now(),
+  };
+}
 
 export function getCachedHistoricalPrices(
   timeRange: string
