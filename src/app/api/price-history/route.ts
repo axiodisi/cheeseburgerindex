@@ -1,4 +1,5 @@
 // src/app/api/price-history/route.ts
+
 import { NextResponse } from "next/server";
 import { getPriceTrends } from "@/services/priceService";
 import {

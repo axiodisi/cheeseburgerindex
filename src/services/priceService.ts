@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { HistoricalPrice } from "@/types/ingredients";
 interface FREDObservation {
   date: string;
   value: string;
@@ -11,7 +11,7 @@ interface FREDResponse {
   observations: FREDObservation[];
 }
 
-interface HistoricalPrice {
+interface priceData {
   date: string;
   [key: string]: number | string;
 }
@@ -168,9 +168,7 @@ export async function getIngredientPrices() {
 }
 
 // New function for historical price trends
-export async function getPriceTrends(
-  months: number = 6
-): Promise<HistoricalPrice[]> {
+export async function getPriceTrends(months: number = 6): Promise<priceData[]> {
   try {
     // Fetch historical data for ingredients and metrics
     const promises = [
@@ -205,7 +203,7 @@ export async function getPriceTrends(
     return Array.from(dates)
       .sort()
       .map((date) => {
-        const dataPoint: HistoricalPrice = { date };
+        const dataPoint: priceData = { date };
         let totalCost = 0;
         let hasAllComponents = true; // Add this flag
 
@@ -228,7 +226,7 @@ export async function getPriceTrends(
         dataPoint.totalCost = totalCost;
         return dataPoint;
       })
-      .filter((point): point is HistoricalPrice => point !== null); // Remove null points
+      .filter((point): point is priceData => point !== null); // Remove null points
   } catch (error) {
     console.error("Error fetching price trends:", error);
     throw error;
