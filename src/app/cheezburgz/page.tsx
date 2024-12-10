@@ -24,9 +24,9 @@ export default function CheezburgzPage() {
             <div className="bg-blue-50 p-4 rounded-lg">
               <h3 className="font-semibold mb-2">Trade on pump.fun</h3>
               <p className="text-gray-700">
-                Get your Cheezburgz while they're hot! Available exclusively on
-                pump.fun. Buy early before the price catches up to a real
-                cheeseburger!
+                Get your Cheezburgz while They&apos;re hot! Available
+                exclusively on... pump.fun. Buy early before the price catches
+                up to a real cheeseburger!
               </p>
             </div>
 

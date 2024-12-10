@@ -1,12 +1,11 @@
-// src/app/api/prices/route.ts
 import { NextResponse } from "next/server";
-import { fetchIngredientPrices } from "@/services/scraper";
+import { getIngredientPrices } from "@/services/priceService";
 
 export async function GET() {
   try {
-    const prices = await fetchIngredientPrices();
+    const prices = await getIngredientPrices();
     return NextResponse.json(prices);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch prices" },
       { status: 500 }

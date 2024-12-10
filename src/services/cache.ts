@@ -1,9 +1,9 @@
-import { IngredientPrice } from "../types/ingredients";
+import { IngredientPrice, HistoricalPrice } from "../types/ingredients";
 
 interface CacheData {
   currentPrices?: IngredientPrice[];
   historicalPrices?: {
-    [timeRange: string]: any[];
+    [timeRange: string]: HistoricalPrice[];
   };
   timestamp: number;
 }
@@ -14,21 +14,9 @@ let priceCache: CacheData = {
   timestamp: 0,
 };
 
-export function getCachedPrices(): IngredientPrice[] | null {
-  if (!priceCache.currentPrices) return null;
-  if (Date.now() - priceCache.timestamp > CACHE_DURATION) return null;
-  return priceCache.currentPrices;
-}
-
-export function setCachedPrices(prices: IngredientPrice[]): void {
-  priceCache = {
-    currentPrices: prices,
-    timestamp: Date.now(),
-    historicalPrices: priceCache.historicalPrices,
-  };
-}
-
-export function getCachedHistoricalPrices(timeRange: string): any[] | null {
+export function getCachedHistoricalPrices(
+  timeRange: string
+): HistoricalPrice[] | null {
   if (!priceCache.historicalPrices?.[timeRange]) return null;
   if (Date.now() - priceCache.timestamp > CACHE_DURATION) return null;
   return priceCache.historicalPrices[timeRange];
@@ -36,7 +24,7 @@ export function getCachedHistoricalPrices(timeRange: string): any[] | null {
 
 export function setCachedHistoricalPrices(
   timeRange: string,
-  prices: any[]
+  prices: HistoricalPrice[]
 ): void {
   priceCache = {
     ...priceCache,
