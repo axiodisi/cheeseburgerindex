@@ -204,8 +204,9 @@ export async function getPriceTrends(months: number = 6): Promise<priceData[]> {
       .map((date) => {
         const dataPoint: priceData = { date };
         let totalCost = 0;
-        let hasAllComponents = true; // Add this flag
+        let hasValidData = true; // Flag for checking if data is valid for the date
 
+        // Process each ingredient and metric
         results.forEach(({ name, data, servingWeight }) => {
           const priceData = data.find((d) => d.date === date);
           if (priceData) {
@@ -214,18 +215,24 @@ export async function getPriceTrends(months: number = 6): Promise<priceData[]> {
             dataPoint[safeName] = cost;
             totalCost += cost;
           } else {
-            hasAllComponents = false; // Missing a component
+            hasValidData = false; // Flag as incomplete data
           }
         });
 
-        if (!hasAllComponents) {
-          return null; // Skip dates with missing components
+        // If incomplete data is found, skip this data point without returning null
+        if (!hasValidData || totalCost === 0) {
+          console.log(
+            `Skipping date ${date} due to missing or incomplete data`
+          );
+          return {}; // Return an empty object to skip this entry
         }
 
+        // Add totalCost to ensure it's present and valid
         dataPoint.totalCost = totalCost;
-        return dataPoint;
+
+        return dataPoint; // Only return if the data point is valid
       })
-      .filter((point): point is priceData => point !== null); // Remove null points
+      .filter((point): point is priceData => Object.keys(point).length > 0); // Ensure we only return non-empty objects
   } catch (error) {
     console.error("Error fetching price trends:", error);
     throw error;
