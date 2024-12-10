@@ -92,19 +92,19 @@ const CheeseburgerDashboard = () => {
                     </div>
 
                     {/* Cost Breakdown Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         {/* Operational Costs */}
                         <div className="bg-slate-50 rounded-xl p-6">
                             <h2 className="text-lg font-semibold text-slate-700 mb-4">Operational Costs</h2>
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {operationalCosts.map((item) => (
                                     <div key={item.name}
-                                        className="flex items-center justify-between p-3 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
-                                        <div className="flex items-center gap-3">
+                                        className="flex flex-wrap items-center justify-between p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+                                        <div className="flex items-center gap-3 w-3/4 md:w-auto">
                                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
                                             <span className="text-sm font-medium text-slate-700">{item.name}</span>
                                         </div>
-                                        <div className="flex gap-4">
+                                        <div className="flex gap-4 items-center w-1/4 md:w-auto">
                                             <span className="text-sm font-medium text-slate-600">${item.servingCost.toFixed(3)}</span>
                                             <span className="text-sm text-slate-400 w-16 text-right">{item.percentage}%</span>
                                         </div>
@@ -116,11 +116,11 @@ const CheeseburgerDashboard = () => {
                         {/* Ingredient Costs */}
                         <div className="bg-slate-50 rounded-xl p-6">
                             <h2 className="text-lg font-semibold text-slate-700 mb-4">Ingredients</h2>
-                            <div className="space-y-3">
+                            <div className="space-y-4">
                                 {ingredientCosts.map((item) => (
                                     <div key={item.name}
-                                        className="flex items-center justify-between p-3 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
-                                        <div className="flex items-center gap-3">
+                                        className="flex flex-wrap items-center justify-between p-4 bg-white rounded-lg border border-slate-100 hover:border-slate-200 transition-colors">
+                                        <div className="flex items-center gap-3 w-3/4 md:w-auto">
                                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
                                             <span className="text-sm font-medium text-slate-700">
                                                 {item.name}
@@ -129,7 +129,7 @@ const CheeseburgerDashboard = () => {
                                                 </span>
                                             </span>
                                         </div>
-                                        <div className="flex gap-4">
+                                        <div className="flex gap-4 items-center w-1/4 md:w-auto">
                                             <span className="text-sm font-medium text-slate-600">${item.servingCost.toFixed(3)}</span>
                                             <span className="text-sm text-slate-400 w-16 text-right">{item.percentage}%</span>
                                         </div>
