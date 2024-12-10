@@ -16,7 +16,7 @@ export interface CheeseburgerIngredient extends IngredientPrice {
 // Add new interface for historical prices
 export interface HistoricalPrice {
   date: string;
-  totalCost: number;
+  totalCost?: number;
   GroundBeef?: number;
   AmericanCheese?: number;
   Lettuce?: number;

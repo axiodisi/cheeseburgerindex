@@ -12,7 +12,7 @@ interface FREDResponse {
 
 interface priceData {
   date: string;
-  [key: string]: number | string;
+  [key: string]: number | string | undefined;
 }
 
 const FRED_API_KEY = process.env.FRED_API_KEY;
