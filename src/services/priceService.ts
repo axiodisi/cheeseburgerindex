@@ -1,5 +1,4 @@
 import axios from "axios";
-import { HistoricalPrice } from "@/types/ingredients";
 interface FREDObservation {
   date: string;
   value: string;
