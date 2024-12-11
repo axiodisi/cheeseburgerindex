@@ -38,7 +38,7 @@ const CheeseburgerDashboard = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-red-900 to-red-800 px-2 md:p-8">
+            <div className="min-h-screen bg-gradient-to-br from-amber-600 via-amber-500 to-amber-600">
                 <div className="w-full animate-pulse">
                     <div className="h-48 bg-red-700/30 rounded-2xl mb-4"></div>
                     <div className="h-96 bg-red-700/30 rounded-2xl"></div>
@@ -49,7 +49,7 @@ const CheeseburgerDashboard = () => {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-red-900 to-red-800 px-2 md:p-8">
+            <div className="min-h-screen bg-gradient-to-br from-amber-600 via-amber-500 to-amber-600">
                 <div className="w-full">
                     <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6">
                         <p className="text-red-700 text-lg">Error: {error}</p>
