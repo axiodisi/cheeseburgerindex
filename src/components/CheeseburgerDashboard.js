@@ -79,10 +79,10 @@ const CheeseburgerDashboard = () => {
             <div className="w-full text-center pt-12 pb-8">
                 <div className="text-7xl mb-4 animate-bounce">🍔</div>
                 <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">
-                    Cheezburgz Token
+                    Cheeseburger Index
                 </h1>
                 <p className="text-slate-600">
-                    Tracking the real value of your favorite meal
+                    Tracking the real cost to produce your favorite meal
                 </p>
             </div>
 
