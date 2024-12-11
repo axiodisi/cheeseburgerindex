@@ -48,8 +48,8 @@ const PriceTrendChart: React.FC = () => {
   useEffect(() => {
     function handleResize() {
       setDimensions({
-        width: window.innerWidth > 768 ? 1300 : window.innerWidth * 0.9,
-        height: window.innerWidth > 768 ? 650 : window.innerWidth * 1.2,
+        width: window.innerWidth > 768 ? 1300 : window.innerWidth - 16,
+        height: window.innerWidth > 768 ? 650 : window.innerWidth,
       });
     }
 
@@ -145,7 +145,7 @@ const PriceTrendChart: React.FC = () => {
   };
 
   const ChartContent = (
-    <div className="w-full h-[60vh]">
+    <div className="w-full h-[70vh]">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
           <h3 className="text-xl font-bold text-slate-800">Price Analysis</h3>
@@ -172,7 +172,7 @@ const PriceTrendChart: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative bg-white rounded-lg shadow-sm p-4 h-[55vh]">
+      <div className="relative bg-white rounded-lg shadow-sm p-4 h-[65vh]">
         <svg
           viewBox={`0 0 ${actualWidth} ${actualHeight}`}
           className="w-full h-full"
