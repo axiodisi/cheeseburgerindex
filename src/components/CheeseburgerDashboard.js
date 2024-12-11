@@ -82,7 +82,8 @@ const CheeseburgerDashboard = () => {
                     The Cheeseburger Index
                 </h1>
                 <p className="text-gray-800 text-lg">
-                    The Real Price of Happiness in a Bun                </p>
+                    The Real Price of Happiness in a Bun
+                </p>
             </div>
 
             <div className="w-full p-4 md:p-8 space-y-8">
@@ -92,12 +93,12 @@ const CheeseburgerDashboard = () => {
                         <div className="flex justify-center">
                             <div className="bg-white rounded-xl shadow-lg border-2 border-amber-300 p-6 inline-flex flex-col items-center">
                                 <div className="text-4xl font-bold text-[#8B4513]">${totalCost.toFixed(2)}</div>
-                                <div className="text-base text-gray-800">Today's Burger Cost</div>
+                                <div className="text-base text-gray-800">Today&apos;s Burger Cost</div>
                             </div>
                         </div>
                         <div className="text-center mt-6">
                             <p className="text-gray-700 font-medium">
-                                Prices fresh from the Federal Reserve's grill
+                                Prices fresh from the Federal Reserve&apos;s grill
                             </p>
                         </div>
                     </div>
@@ -128,7 +129,7 @@ const CheeseburgerDashboard = () => {
 
                     <div className="bg-amber-50 rounded-2xl shadow-lg border-2 border-amber-200 overflow-hidden">
                         <div className="p-6">
-                            <h2 className="text-2xl font-bold text-[#8B4513] mb-6">Today's Ingredients</h2>
+                            <h2 className="text-2xl font-bold text-[#8B4513] mb-6">Today&apos;s Ingredients</h2>
                             <div className="space-y-4">
                                 {ingredientCosts.map((item) => (
                                     <div key={item.name}
