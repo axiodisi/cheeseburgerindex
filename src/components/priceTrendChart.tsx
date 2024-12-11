@@ -45,13 +45,12 @@ const PriceTrendChart: React.FC = () => {
     fetchData();
   }, [timeRange]);
 
-  useEffect(() => {
-    function handleResize() {
-      setDimensions({
-        width: window.innerWidth > 768 ? 1300 : window.innerWidth,
-        height: window.innerWidth > 768 ? 650 : window.innerWidth * 0.8,
-      });
-    }
+  function handleResize() {
+  setDimensions({
+    width: window.innerWidth > 768 ? 1300 : window.innerWidth * 0.9,
+    height: window.innerWidth > 768 ? 650 : window.innerWidth * 1.2
+  });
+}
 
     handleResize();
     window.addEventListener("resize", handleResize);
