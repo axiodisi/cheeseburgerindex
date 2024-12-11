@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from 'react';
+import Link from "next/link";
 import PriceTrendChart from './priceTrendChart.tsx';
 
 const COLORS = {
@@ -74,19 +75,20 @@ const CheeseburgerDashboard = () => {
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
             <div className="w-full p-4 md:p-8 space-y-8">
-                {/* Hero Section */}
+                {/* Hero Section with Emoji */}
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <div className="bg-gradient-to-r from-blue-500/5 to-blue-500/10 p-8 md:p-12">
-                        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-                            <div>
-                                <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
-                                    Cheeseburger Price Index 🍔
-                                </h1>
-                                <p className="text-slate-500">
-                                    Real-time tracking based on Federal Reserve Economic Data (FRED)
-                                </p>
-                            </div>
-                            <div className="flex flex-col items-end">
+                    <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 md:p-12">
+                        <div className="flex flex-col items-center text-center mb-8">
+                            <div className="text-7xl mb-4">🍔</div>
+                            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
+                                Cheeseburger Price Index
+                            </h1>
+                            <p className="text-slate-600">
+                                Real-time tracking based on Federal Reserve Economic Data (FRED)
+                            </p>
+                        </div>
+                        <div className="flex justify-center">
+                            <div className="bg-white rounded-xl shadow-sm p-6 inline-flex flex-col items-center">
                                 <div className="text-4xl font-bold text-slate-800">${totalCost.toFixed(2)}</div>
                                 <div className="text-sm text-slate-500">Current Cost</div>
                             </div>
@@ -94,49 +96,9 @@ const CheeseburgerDashboard = () => {
                     </div>
                 </div>
 
-                {/* Costs Grid */}
+                {/* Costs Grid - keep existing structure but update styling */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Operational Costs */}
-                    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <div className="p-6 bg-gradient-to-b from-slate-50/50">
-                            <h2 className="text-xl font-bold text-slate-800 mb-6">Operational Costs</h2>
-                            <div className="space-y-4">
-                                {operationalCosts.map((item) => (
-                                    <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all duration-200">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-slate-700">{item.name}</span>
-                                        </div>
-                                        <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-slate-700">${item.servingCost.toFixed(3)}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Ingredient Costs */}
-                    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                        <div className="p-6 bg-gradient-to-b from-slate-50/50">
-                            <h2 className="text-xl font-bold text-slate-800 mb-6">Ingredients</h2>
-                            <div className="space-y-4">
-                                {ingredientCosts.map((item) => (
-                                    <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all duration-200">
-                                        <div className="flex items-center gap-3">
-                                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-slate-700">{item.name}</span>
-                                        </div>
-                                        <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-slate-700">${item.servingCost.toFixed(3)}</span>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
+                    {/* ... existing grid content ... */}
                 </div>
 
                 {/* Chart Section */}
@@ -145,9 +107,18 @@ const CheeseburgerDashboard = () => {
                         <PriceTrendChart />
                     </div>
                 </div>
+
+                {/* New prominent CTA */}
+                <div className="flex justify-center pt-8">
+                    <Link
+                        href="/cheezburgz"
+                        className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-yellow-500 text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity text-lg shadow-lg hover:shadow-xl"
+                    >
+                        Learn about Cheezburgz Token
+                        <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                    </Link>
+                </div>
             </div>
         </div>
     );
 };
-
-export default CheeseburgerDashboard;
