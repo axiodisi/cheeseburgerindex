@@ -31,13 +31,13 @@ const PriceTrendChart: React.FC = () => {
 
   if (loading)
     return (
-      <div className="w-full h-96 flex items-center justify-center">
+      <div className="w-full h-64 md:h-96 flex items-center justify-center">
         Loading...
       </div>
     );
   if (error)
     return (
-      <div className="w-full h-96 flex items-center justify-center text-red-500">
+      <div className="w-full h-64 md:h-96 flex items-center justify-center text-red-500">
         {error}
       </div>
     );
@@ -50,8 +50,8 @@ const PriceTrendChart: React.FC = () => {
   const yMin = Math.max(0, minPrice - priceRange * 0.1);
 
   return (
-    <div className="w-full px-4 pb-8 bg-white">
-      <div className="flex justify-between items-center mb-6">
+    <div className="w-full px-4 pb-4 md:pb-8 bg-white">
+      <div className="flex justify-between items-center mb-4 md:mb-6">
         <div>
           <h3 className="text-xl font-bold text-slate-800">Price Analysis</h3>
           <p className="text-slate-500">Historical burger cost trends</p>
@@ -67,7 +67,7 @@ const PriceTrendChart: React.FC = () => {
         </select>
       </div>
 
-      <div className="aspect-[2/1] w-full">
+      <div className="w-full h-64 md:aspect-[2/1] md:h-auto">
         <svg
           width="100%"
           height="100%"
@@ -97,7 +97,6 @@ const PriceTrendChart: React.FC = () => {
                 >
                   ${price.toFixed(2)}
                 </text>
-                {/* Right side labels */}
                 <text
                   x="910"
                   y={y}
