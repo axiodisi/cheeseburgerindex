@@ -105,8 +105,8 @@ const CheeseburgerDashboard = () => {
                 </div>
 
                 {/* Chart Section */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg overflow-visible">
-                    <div className="min-h-[500px] md:min-h-[650px] w-full overflow-visible">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-4">
+                    <div className="w-full h-[500px] md:h-[650px]">
                         <PriceTrendChart />
                     </div>
                 </div>

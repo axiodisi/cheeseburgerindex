@@ -166,7 +166,8 @@ const PriceTrendChart: React.FC = () => {
           </div>
         </div>
 
-        <div className="relative bg-white rounded-lg shadow-sm p-4 h-[65vh]">
+        <div className="relative bg-white rounded-lg shadow-sm h-full">
+          {" "}
           <svg
             viewBox={`0 0 ${actualWidth} ${actualHeight}`}
             className="w-full h-full"
