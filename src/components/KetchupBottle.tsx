@@ -7,10 +7,10 @@ const KetchupBottle = () => {
   const { scrollYProgress } = useScroll();
   const x = useTransform(
     scrollYProgress,
-    [0, 0.5, 1],
+    [0, 0.3, 0.6],
     ["-100%", "150%", "300%"]
   );
-  const rotate = useTransform(scrollYProgress, [0, 0.5, 1], [0, 360, 720]);
+  const rotate = useTransform(scrollYProgress, [0, 0.3, 0.6], [0, 360, 720]);
 
   React.useEffect(() => {
     setIsMobile(window.innerWidth < 768);
