@@ -1,49 +1,70 @@
 "use client";
+import React from "react";
 import Link from "next/link";
+import { motion, useScroll, useTransform } from "framer-motion";
+
+const KetchupBottle = () => {
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["-100%", "150%", "300%"]
+  );
+  const rotate = useTransform(scrollYProgress, [0, 0.5, 1], [0, 360, 720]);
+
+  return (
+    <motion.div
+      className="fixed top-1/2 -translate-y-1/2 w-24 h-24 md:w-32 md:h-32 z-50 pointer-events-none"
+      style={{ x, rotate }}
+    >
+      <span className="text-6xl md:text-7xl">🍅</span>
+    </motion.div>
+  );
+};
 
 export default function CheezburgzPage() {
   return (
-    <div className="min-h-screen bg-[#FFF8E1]">
-      {/* Hero Section */}
+    <div className="min-h-screen bg-gradient-to-br from-[#5E1914] via-[#4A0F0C] to-[#5E1914]">
+      <KetchupBottle />
+
       <div className="flex flex-col items-center justify-center pt-20 pb-16 px-4">
         <div className="text-8xl mb-6 animate-bounce">🍔</div>
-        <h1 className="text-5xl md:text-6xl font-bold text-center mb-4 bg-gradient-to-r from-[#8B4513] to-[#FF6B6B] bg-clip-text text-transparent">
+        <h1 className="text-5xl md:text-6xl font-bold text-center mb-4 text-white">
           Cheezburgz Token
         </h1>
-        <p className="text-lg text-[#333333] text-center max-w-2xl">
+        <p className="text-lg text-white/80 text-center max-w-2xl">
           The first token that lets you trade the taste of a cheeseburger!
         </p>
       </div>
 
-      {/* Content Sections */}
       <div className="max-w-6xl mx-auto px-4 pb-20 space-y-12">
         <div className="grid md:grid-cols-3 gap-8">
-          <div className="bg-gradient-to-br from-[#FFC107]/10 to-[#FFD54F]/10 rounded-2xl p-8 shadow-sm border border-[#FFC107]/20">
-            <h2 className="text-2xl font-bold mb-4 text-[#8B4513]">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10 hover:border-white/20 transition-all">
+            <h2 className="text-2xl font-bold mb-4 text-white">
               Trade on pump.fun
             </h2>
-            <p className="text-[#333333]">
+            <p className="text-white/80">
               Get your Cheezburgz while they&apos;re hot! Available exclusively
               on pump.fun. Buy early before the price catches up to a real
               cheeseburger!
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#90EE90]/10 to-[#90EE90]/20 rounded-2xl p-8 shadow-sm border border-[#90EE90]/20">
-            <h2 className="text-2xl font-bold mb-4 text-[#8B4513]">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10 hover:border-white/20 transition-all">
+            <h2 className="text-2xl font-bold mb-4 text-white">
               Watch It Sizzle
             </h2>
-            <p className="text-[#333333]">
+            <p className="text-white/80">
               Track your gains alongside our Cheeseburger Price Index. Will
               Cheezburgz pump higher than beef prices? Only one way to find out!
             </p>
           </div>
 
-          <div className="bg-gradient-to-br from-[#FF6B6B]/10 to-[#FF6B6B]/20 rounded-2xl p-8 shadow-sm border border-[#FF6B6B]/20">
-            <h2 className="text-2xl font-bold mb-4 text-[#8B4513]">
+          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 shadow-lg border border-white/10 hover:border-white/20 transition-all">
+            <h2 className="text-2xl font-bold mb-4 text-white">
               Join the Menu
             </h2>
-            <p className="text-[#333333]">
+            <p className="text-white/80">
               Be part of the tastiest community in crypto. Where meme meets
               meal, and every trade comes with extra cheese! 🧀
             </p>
@@ -53,7 +74,7 @@ export default function CheezburgzPage() {
         <div className="flex justify-center">
           <Link
             href="/"
-            className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#8B4513] to-[#FFC107] text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity text-lg shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-white transition-all text-xl shadow-lg hover:shadow-xl"
           >
             ← Back to Price Index
           </Link>
