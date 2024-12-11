@@ -93,7 +93,7 @@ const PriceTrendChart: React.FC = () => {
                   y={y}
                   textAnchor="end"
                   alignmentBaseline="middle"
-                  className="text-xs fill-slate-600"
+                  className="text-sm font-medium fill-slate-700"
                 >
                   ${price.toFixed(2)}
                 </text>
@@ -102,7 +102,7 @@ const PriceTrendChart: React.FC = () => {
                   y={y}
                   textAnchor="start"
                   alignmentBaseline="middle"
-                  className="text-xs fill-slate-600"
+                  className="text-sm font-medium fill-slate-700"
                 >
                   ${price.toFixed(2)}
                 </text>
@@ -151,7 +151,7 @@ const PriceTrendChart: React.FC = () => {
                   x={x}
                   y="480"
                   textAnchor="middle"
-                  className="text-xs fill-slate-600"
+                  className="text-sm font-medium fill-slate-700"
                 >
                   {new Date(d.date).toLocaleDateString(undefined, {
                     month: "short",
