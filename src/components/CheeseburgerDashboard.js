@@ -1,4 +1,3 @@
-"use client";
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 import PriceTrendChart from './priceTrendChart.tsx';
@@ -74,31 +73,37 @@ const CheeseburgerDashboard = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-white to-slate-50">
+            {/* Moved Hero Section Outside Container */}
+            <div className="w-full text-center pt-12 pb-8">
+                <div className="text-7xl mb-4 animate-bounce">🍔</div>
+                <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-2">
+                    Cheezburgz Token
+                </h1>
+                <p className="text-slate-600">
+                    Tracking the real value of your favorite meal
+                </p>
+            </div>
+
             <div className="w-full p-4 md:p-8 space-y-8">
-                {/* Hero Section with Emoji */}
+                {/* Price Container */}
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                     <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 md:p-12">
-                        <div className="flex flex-col items-center text-center mb-8">
-                            <div className="text-7xl mb-4 animate-bounce">🍔</div>
-                            <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
-                                Cheeseburger Price Index
-                            </h1>
-                            <p className="text-slate-600">
-                                Real-time tracking based on Federal Reserve Economic Data (FRED)
-                            </p>
-                        </div>
                         <div className="flex justify-center">
                             <div className="bg-white rounded-xl shadow-sm p-6 inline-flex flex-col items-center">
                                 <div className="text-4xl font-bold text-slate-800">${totalCost.toFixed(2)}</div>
                                 <div className="text-sm text-slate-500">Current Cost</div>
                             </div>
                         </div>
+                        <div className="text-center mt-6">
+                            <p className="text-slate-600">
+                                Real-time tracking based on Federal Reserve Economic Data (FRED)
+                            </p>
+                        </div>
                     </div>
                 </div>
 
-                {/* Costs Grid */}
+                {/* Rest of the content remains the same */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Operational Costs */}
                     <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <div className="p-6 bg-gradient-to-b from-slate-50/50">
                             <h2 className="text-xl font-bold text-slate-800 mb-6">Operational Costs</h2>
@@ -119,7 +124,6 @@ const CheeseburgerDashboard = () => {
                         </div>
                     </div>
 
-                    {/* Ingredient Costs */}
                     <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                         <div className="p-6 bg-gradient-to-b from-slate-50/50">
                             <h2 className="text-xl font-bold text-slate-800 mb-6">Ingredients</h2>
@@ -141,14 +145,12 @@ const CheeseburgerDashboard = () => {
                     </div>
                 </div>
 
-                {/* Chart Section */}
                 <div className="bg-white rounded-2xl shadow-sm w-full overflow-hidden">
                     <div className="w-full">
                         <PriceTrendChart />
                     </div>
                 </div>
 
-                {/* New prominent CTA */}
                 <div className="flex justify-center pt-8">
                     <Link
                         href="/cheezburgz"
