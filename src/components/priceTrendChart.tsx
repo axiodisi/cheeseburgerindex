@@ -142,8 +142,8 @@ const PriceTrendChart: React.FC = () => {
   };
 
   return (
-    <div className="w-full p-2">
-      <div className="w-full h-[70vh]">
+    <div className="w-full h-full">
+      <div className="w-full h-full">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-2 gap-2">
           <div>
             <h3 className="text-xl font-bold text-slate-800">Price Analysis</h3>
