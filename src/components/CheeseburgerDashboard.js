@@ -79,7 +79,7 @@ const CheeseburgerDashboard = () => {
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
                     <div className="bg-gradient-to-r from-orange-50 to-yellow-50 p-8 md:p-12">
                         <div className="flex flex-col items-center text-center mb-8">
-                            <div className="text-7xl mb-4">🍔</div>
+                            <div className="text-7xl mb-4 animate-bounce">🍔</div>
                             <h1 className="text-3xl md:text-4xl font-bold text-slate-800 mb-2">
                                 Cheeseburger Price Index
                             </h1>
