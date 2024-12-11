@@ -55,6 +55,9 @@ const CheeseburgerDashboard = () => {
                 <div className="text-7xl md:text-8xl mb-4 animate-bounce">🍔</div>
                 <h1 className="text-5xl md:text-6xl font-bold text-white mb-3">The Cheeseburger Index</h1>
                 <p className="text-white/90 text-xl md:text-2xl">The Real Price of Happiness in a Bun</p>
+                <p className="text-sm text-slate-500 mt-1 italic">
+                    Prices served up fresh from the Federal Reserve Bank of St Louis
+                </p>
             </div>
 
             {/* Content Grid */}
