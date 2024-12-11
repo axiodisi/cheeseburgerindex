@@ -46,7 +46,7 @@ const PriceTrendChart: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="w-full h-[600px] flex items-center justify-center bg-slate-50 rounded-lg">
+      <div className="w-full h-[650px] flex items-center justify-center bg-slate-50 rounded-lg">
         <p>Loading price history...</p>
       </div>
     );
@@ -54,7 +54,7 @@ const PriceTrendChart: React.FC = () => {
 
   if (error) {
     return (
-      <div className="w-full h-[600px] flex items-center justify-center bg-slate-50 rounded-lg">
+      <div className="w-full h-[650px] flex items-center justify-center bg-slate-50 rounded-lg">
         <p className="text-red-500">Error: {error}</p>
       </div>
     );
@@ -63,8 +63,8 @@ const PriceTrendChart: React.FC = () => {
   if (!data || data.length === 0) return null;
 
   // Chart dimensions
-  const width = isFullscreen ? 1400 : 800;
-  const height = isFullscreen ? 800 : 400;
+  const width = isFullscreen ? 1800 : 1300;
+  const height = isFullscreen ? 1000 : 650;
   const MARGIN = { top: 40, right: 80, bottom: 60, left: 60 };
   const chartWidth = width - MARGIN.left - MARGIN.right;
   const chartHeight = height - MARGIN.top - MARGIN.bottom;
@@ -164,7 +164,7 @@ const PriceTrendChart: React.FC = () => {
 
       <div
         className={`relative bg-white rounded-lg shadow-sm p-4 ${
-          isFullscreen ? "h-[calc(100vh-160px)]" : "h-[400px]"
+          isFullscreen ? "h-[calc(100vh-160px)]" : "h-[520px]"
         }`}
       >
         <svg
