@@ -64,7 +64,7 @@ const CheeseburgerDashboard = () => {
                     <div className="flex justify-center">
                         <div className="bg-white rounded-xl shadow-md border border-orange-100 p-6 inline-flex flex-col items-center">
                             <div className="text-5xl md:text-6xl font-bold text-orange-900">${totalCost.toFixed(2)}</div>
-                            <div className="text-lg md:text-xl text-stone-600">Today's Burger Cost</div>
+                            <div className="text-lg md:text-xl text-stone-600">Today&apos;s Burger Cost</div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +89,7 @@ const CheeseburgerDashboard = () => {
 
                     {/* Ingredients Card */}
                     <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-6">
-                        <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-6">Today's Ingredients</h2>
+                        <h2 className="text-2xl md:text-3xl font-bold text-stone-800 mb-6">Today&apos;s Ingredients</h2>
                         <div className="space-y-4">
                             {ingredientCosts.map((item) => (
                                 <div key={item.name} className="flex items-center justify-between p-4 bg-white rounded-xl border border-stone-200 hover:border-orange-200 hover:shadow-md transition-all">
