@@ -45,12 +45,13 @@ const PriceTrendChart: React.FC = () => {
     fetchData();
   }, [timeRange]);
 
-  function handleResize() {
-  setDimensions({
-    width: window.innerWidth > 768 ? 1300 : window.innerWidth * 0.9,
-    height: window.innerWidth > 768 ? 650 : window.innerWidth * 1.2
-  });
-}
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth > 768 ? 1300 : window.innerWidth * 0.9,
+        height: window.innerWidth > 768 ? 650 : window.innerWidth * 1.2,
+      });
+    }
 
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -76,11 +77,11 @@ const PriceTrendChart: React.FC = () => {
   if (!data || data.length === 0) return null;
 
   // Chart dimensions
-  const width = dimensions.width;
-  const height = dimensions.height;
+  const actualWidth = dimensions.width;
+  const actualHeight = dimensions.height;
   const MARGIN = { top: 40, right: 80, bottom: 60, left: 60 };
-  const chartWidth = width - MARGIN.left - MARGIN.right;
-  const chartHeight = height - MARGIN.top - MARGIN.bottom;
+  const chartWidth = actualWidth - MARGIN.left - MARGIN.right;
+  const chartHeight = actualHeight - MARGIN.top - MARGIN.bottom;
 
   // Scale calculations
   const maxPrice = Math.max(...data.map((d) => d.totalCost));
@@ -144,7 +145,7 @@ const PriceTrendChart: React.FC = () => {
   };
 
   const ChartContent = (
-    <div className="w-full h-[90vh]">
+    <div className="w-full h-[60vh]">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
         <div>
           <h3 className="text-xl font-bold text-slate-800">Price Analysis</h3>
@@ -171,9 +172,9 @@ const PriceTrendChart: React.FC = () => {
         </div>
       </div>
 
-      <div className="relative bg-white rounded-lg shadow-sm p-4 h-[85vh]">
+      <div className="relative bg-white rounded-lg shadow-sm p-4 h-[55vh]">
         <svg
-          viewBox={`0 0 ${width} ${height}`}
+          viewBox={`0 0 ${actualWidth} ${actualHeight}`}
           className="w-full h-full"
           preserveAspectRatio="xMidYMid meet"
           style={{ maxWidth: "100%" }}
@@ -187,7 +188,7 @@ const PriceTrendChart: React.FC = () => {
               key={`grid-${i}`}
               x1={MARGIN.left}
               y1={tick.y}
-              x2={width - MARGIN.right}
+              x2={actualWidth - MARGIN.right}
               y2={tick.y}
               stroke="#cbd5e1"
               strokeWidth="1"
@@ -200,7 +201,7 @@ const PriceTrendChart: React.FC = () => {
           {yTicks.map((tick, i) => (
             <text
               key={`y-${i}`}
-              x={width - MARGIN.right + 10}
+              x={actualWidth - MARGIN.right + 10}
               y={tick.y}
               textAnchor="start"
               dominantBaseline="middle"
@@ -220,14 +221,14 @@ const PriceTrendChart: React.FC = () => {
                   (i * Math.ceil(data.length / 8) * chartWidth) /
                     (data.length - 1)
                 }
-                y={height - MARGIN.bottom + 20}
+                y={actualHeight - MARGIN.bottom + 20}
                 textAnchor="middle"
                 className="text-base fill-slate-700"
                 transform={`rotate(-45, ${
                   MARGIN.left +
                   (i * Math.ceil(data.length / 8) * chartWidth) /
                     (data.length - 1)
-                }, ${height - MARGIN.bottom + 20})`}
+                }, ${actualHeight - MARGIN.bottom + 20})`}
               >
                 {formatDate(point.date)}
               </text>
@@ -246,7 +247,7 @@ const PriceTrendChart: React.FC = () => {
                 x1={tooltip.x}
                 y1={MARGIN.top}
                 x2={tooltip.x}
-                y2={height - MARGIN.bottom}
+                y2={actualHeight - MARGIN.bottom}
                 stroke="#94a3b8"
                 strokeWidth="1"
                 strokeDasharray="2,2"
