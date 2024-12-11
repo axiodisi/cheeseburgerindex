@@ -89,15 +89,6 @@ const PriceTrendChart: React.FC = () => {
                   strokeWidth="1"
                 />
                 <text
-                  x="90"
-                  y={y}
-                  textAnchor="end"
-                  alignmentBaseline="middle"
-                  className="text-sm font-medium fill-slate-700"
-                >
-                  ${price.toFixed(2)}
-                </text>
-                <text
                   x="910"
                   y={y}
                   textAnchor="start"
