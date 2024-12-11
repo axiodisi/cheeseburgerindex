@@ -19,6 +19,7 @@ const PriceTrendChart: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [dimensions, setDimensions] = useState({ width: 1300, height: 650 });
   const [tooltip, setTooltip] = useState<TooltipState>({
     show: false,
     x: 0,
@@ -44,6 +45,19 @@ const PriceTrendChart: React.FC = () => {
     fetchData();
   }, [timeRange]);
 
+  useEffect(() => {
+    function handleResize() {
+      setDimensions({
+        width: window.innerWidth > 768 ? 1300 : window.innerWidth - 32,
+        height: window.innerWidth > 768 ? 650 : 400,
+      });
+    }
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   if (loading) {
     return (
       <div className="w-full h-[650px] flex items-center justify-center bg-slate-50 rounded-lg">
@@ -63,8 +77,8 @@ const PriceTrendChart: React.FC = () => {
   if (!data || data.length === 0) return null;
 
   // Chart dimensions
-  const width = isFullscreen ? 1800 : 1300;
-  const height = isFullscreen ? 1000 : 650;
+  const width = dimensions.width;
+  const height = dimensions.height;
   const MARGIN = { top: 40, right: 80, bottom: 60, left: 60 };
   const chartWidth = width - MARGIN.left - MARGIN.right;
   const chartHeight = height - MARGIN.top - MARGIN.bottom;
@@ -170,6 +184,8 @@ const PriceTrendChart: React.FC = () => {
         <svg
           viewBox={`0 0 ${width} ${height}`}
           className="w-full h-full"
+          preserveAspectRatio="xMidYMid meet"
+          style={{ maxWidth: "100%" }}
           onMouseMove={handleMouseMove}
           onMouseLeave={() =>
             setTooltip({ show: false, x: 0, y: 0, data: null })
