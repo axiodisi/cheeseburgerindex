@@ -77,7 +77,7 @@ const CheeseburgerDashboard = () => {
 
     return (
         <div className="min-h-screen bg-slate-50">
-            <div className="max-w-[90rem] mx-auto p-4 md:p-8 space-y-6">
+            <div className="w-full p-4 md:p-8 space-y-6">
                 {/* Header Section */}
                 <div className="bg-white rounded-2xl shadow-sm p-6 md:p-8">
                     <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
@@ -136,7 +136,7 @@ const CheeseburgerDashboard = () => {
                 {/* Price Trend Chart Section */}
                 <div className="bg-white rounded-2xl shadow-sm w-full overflow-hidden">
                     {/* Increase graph size and add better spacing */}
-                    <div className="h-[800px">
+                    <div className="h-[800px">{ }
                         <PriceTrendChart /> {/* Ensure the chart has sufficient height */}
                     </div>
                 </div>
