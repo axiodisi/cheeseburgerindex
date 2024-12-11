@@ -54,7 +54,7 @@ export default function CheezburgzPage() {
         <div className="flex justify-center">
           <Link
             href="/"
-            className="group inline-flex items-center gap-2 bg-white/95 backdrop-blur-sm text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-white transition-all text-xl shadow-lg hover:shadow-xl"
+            className="group inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all text-xl shadow-lg hover:shadow-xl"
           >
             ← Back to Price Index
           </Link>

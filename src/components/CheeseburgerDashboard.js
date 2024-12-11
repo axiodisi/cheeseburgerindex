@@ -5,7 +5,7 @@ import PriceTrendChart from './priceTrendChart.tsx';
 
 const COLORS = {
     'Ground Beef': '#8D4E41',
-    'American Cheese': '#FFA726',
+    'American Cheese': '#FFD700',
     'Lettuce': '#66BB6A',
     'Tomato': '#E53935',
     'Hamburger Bun': '#F59E0B',
@@ -114,7 +114,7 @@ const CheeseburgerDashboard = () => {
                 <div className="flex justify-center py-6">
                     <Link
                         href="/cheezburgz"
-                        className="group inline-flex items-center gap-2 bg-white text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition-all text-xl shadow-lg hover:shadow-xl"
+                        className="group inline-flex items-center gap-2 bg-gradient-to-r from-amber-500 to-yellow-500 backdrop-blur-sm text-white px-8 py-4 rounded-xl font-semibold hover:from-amber-600 hover:to-yellow-600 transition-all text-xl shadow-lg hover:shadow-xl"
                     >
                         Learn about Cheezburgz Token
                         <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
