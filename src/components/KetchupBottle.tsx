@@ -8,7 +8,7 @@ const KetchupBottle = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6],
-    ["-100%", "150%", "450%"]
+    ["-100%", "150%", "500%"]
   );
   const rotate = useTransform(scrollYProgress, [0, 0.3, 0.6], [0, 360, 720]);
 
