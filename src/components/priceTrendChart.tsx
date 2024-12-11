@@ -50,8 +50,8 @@ const PriceTrendChart: React.FC = () => {
   const yMin = Math.max(0, minPrice - priceRange * 0.1);
 
   return (
-    <div className="w-full px-4 pb-4 md:pb-8 bg-white">
-      <div className="flex justify-between items-center mb-4 md:mb-6">
+    <div className="w-full h-fit bg-white">
+      <div className="flex justify-between items-center p-4 md:p-6">
         <div>
           <h3 className="text-xl font-bold text-slate-800">Price Analysis</h3>
           <p className="text-slate-500">Historical burger cost trends</p>
@@ -67,7 +67,7 @@ const PriceTrendChart: React.FC = () => {
         </select>
       </div>
 
-      <div className="w-full h-64 md:aspect-[2/1] md:h-auto">
+      <div className="w-full aspect-[2/1]">
         <svg
           width="100%"
           height="100%"
