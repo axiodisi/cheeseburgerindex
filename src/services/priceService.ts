@@ -44,7 +44,7 @@ const INGREDIENTS = {
   },
   "Hamburger Bun": {
     seriesId: "APU0000702111",
-    servingWeight: 1,
+    servingWeight: 0.15,
     servingUnit: "unit",
   },
 };
