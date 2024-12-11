@@ -1,6 +1,6 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
 import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const KetchupBottle = () => {
   const [isMobile, setIsMobile] = React.useState(true);
@@ -8,7 +8,7 @@ const KetchupBottle = () => {
   const x = useTransform(
     scrollYProgress,
     [0, 0.3, 0.6],
-    ["-100%", "150%", "400%"]
+    ["-100%", "150%", "450%"]
   );
   const rotate = useTransform(scrollYProgress, [0, 0.3, 0.6], [0, 360, 720]);
 
@@ -19,36 +19,12 @@ const KetchupBottle = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  if (isMobile) {
-    return (
-      <motion.div
-        className="fixed top-1/2 -translate-y-1/2 w-24 h-24 z-50 pointer-events-none"
-        style={{ x, rotate }}
-      >
-        <span className="text-6xl">🍅</span>
-      </motion.div>
-    );
-  }
+  if (!isMobile) return null;
 
   return (
     <motion.div
-      className="fixed bottom-12 w-24 h-24 z-50 pointer-events-none"
-      animate={{
-        x: ["-10vw", "110vw"],
-        y: [0, -20, 0, -20, 0, -20, 0],
-        rotate: [0, 360],
-      }}
-      transition={{
-        duration: 6,
-        repeat: Infinity,
-        repeatDelay: 0.5,
-        ease: "linear",
-        y: {
-          duration: 2,
-          repeat: 3,
-          ease: "easeInOut",
-        },
-      }}
+      className="fixed top-1/2 -translate-y-1/2 w-24 h-24 z-50 pointer-events-none"
+      style={{ x, rotate }}
     >
       <span className="text-6xl">🍅</span>
     </motion.div>

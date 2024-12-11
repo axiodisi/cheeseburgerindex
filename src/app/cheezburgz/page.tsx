@@ -2,7 +2,6 @@
 import React from "react";
 import Link from "next/link";
 import KetchupBottle from "@/components/KetchupBottle";
-
 export default function CheezburgzPage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#5E1914] via-[#4A0F0C] to-[#5E1914]">
