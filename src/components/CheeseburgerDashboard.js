@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 import PriceTrendChart from './priceTrendChart.tsx';
 
-// Updated color palette
 const COLORS = {
     'Ground Beef': '#8B4513',    // Rich Brown
     'American Cheese': '#FFC107', // Golden Yellow
@@ -39,10 +38,10 @@ const CheeseburgerDashboard = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#FFF8E1] p-4 md:p-8">
+            <div className="min-h-screen bg-amber-50 p-4 md:p-8">
                 <div className="w-full animate-pulse">
-                    <div className="h-48 bg-[#FFD54F]/20 rounded-2xl mb-8"></div>
-                    <div className="h-96 bg-[#FFD54F]/20 rounded-2xl"></div>
+                    <div className="h-48 bg-amber-300/20 rounded-2xl mb-8"></div>
+                    <div className="h-96 bg-amber-300/20 rounded-2xl"></div>
                 </div>
             </div>
         );
@@ -50,10 +49,10 @@ const CheeseburgerDashboard = () => {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-[#FFF8E1] p-4 md:p-8">
+            <div className="min-h-screen bg-amber-50 p-4 md:p-8">
                 <div className="w-full">
-                    <div className="bg-[#FF6B6B]/10 border border-[#FF6B6B]/20 rounded-2xl p-6">
-                        <p className="text-[#FF6B6B]">Error: {error}</p>
+                    <div className="bg-red-400/10 border border-red-400/20 rounded-2xl p-6">
+                        <p className="text-red-400">Error: {error}</p>
                     </div>
                 </div>
             </div>
@@ -75,29 +74,29 @@ const CheeseburgerDashboard = () => {
     );
 
     return (
-        <div className="min-h-screen bg-[#FFF8E1]">
+        <div className="min-h-screen bg-amber-50">
             {/* Hero Section */}
             <div className="w-full text-center pt-12 pb-8">
                 <div className="text-7xl mb-4 animate-bounce">🍔</div>
                 <h1 className="text-4xl md:text-5xl font-bold text-[#8B4513] mb-2">
                     The Cheeseburger Index
                 </h1>
-                <p className="text-[#333333]">
+                <p className="text-gray-800">
                     The Real Price of Happiness in a Bun                </p>
             </div>
 
             <div className="w-full p-4 md:p-8 space-y-8">
                 {/* Price Container */}
                 <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
-                    <div className="bg-gradient-to-r from-[#FFC107]/10 to-[#FFD54F]/10 p-8 md:p-12">
+                    <div className="bg-gradient-to-r from-amber-400/10 to-amber-300/10 p-8 md:p-12">
                         <div className="flex justify-center">
                             <div className="bg-white rounded-xl shadow-sm p-6 inline-flex flex-col items-center">
                                 <div className="text-4xl font-bold text-[#8B4513]">${totalCost.toFixed(2)}</div>
-                                <div className="text-sm text-[#333333]">Current Cost</div>
+                                <div className="text-sm text-gray-800">Current Cost</div>
                             </div>
                         </div>
                         <div className="text-center mt-6">
-                            <p className="text-[#333333]">
+                            <p className="text-gray-800">
                                 Real-time tracking based on Federal Reserve Economic Data (FRED)
                             </p>
                         </div>
@@ -112,13 +111,13 @@ const CheeseburgerDashboard = () => {
                             <div className="space-y-4">
                                 {operationalCosts.map((item) => (
                                     <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-[#FFC107]/20 hover:border-[#FFC107]/40 hover:shadow-sm transition-all duration-200">
+                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-amber-400/20 hover:border-amber-400/40 hover:shadow-sm transition-all duration-200">
                                         <div className="flex items-center gap-3">
                                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-[#333333]">{item.name}</span>
+                                            <span className="font-medium text-gray-800">{item.name}</span>
                                         </div>
                                         <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-[#333333]">${item.servingCost.toFixed(3)}</span>
+                                            <span className="font-medium text-gray-800">${item.servingCost.toFixed(3)}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -132,13 +131,13 @@ const CheeseburgerDashboard = () => {
                             <div className="space-y-4">
                                 {ingredientCosts.map((item) => (
                                     <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-[#FFC107]/20 hover:border-[#FFC107]/40 hover:shadow-sm transition-all duration-200">
+                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-amber-400/20 hover:border-amber-400/40 hover:shadow-sm transition-all duration-200">
                                         <div className="flex items-center gap-3">
                                             <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-[#333333]">{item.name}</span>
+                                            <span className="font-medium text-gray-800">{item.name}</span>
                                         </div>
                                         <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-[#333333]">${item.servingCost.toFixed(3)}</span>
+                                            <span className="font-medium text-gray-800">${item.servingCost.toFixed(3)}</span>
                                         </div>
                                     </div>
                                 ))}
@@ -156,7 +155,7 @@ const CheeseburgerDashboard = () => {
                 <div className="flex justify-center pt-8">
                     <Link
                         href="/cheezburgz"
-                        className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-[#FF6B6B] to-[#FFC107] text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity text-lg shadow-lg hover:shadow-xl"
+                        className="group relative inline-flex items-center gap-2 bg-gradient-to-r from-red-400 to-amber-400 text-white px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition-opacity text-lg shadow-lg hover:shadow-xl"
                     >
                         Learn about Cheezburgz Token
                         <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
