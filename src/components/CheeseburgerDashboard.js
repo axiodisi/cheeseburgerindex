@@ -96,9 +96,49 @@ const CheeseburgerDashboard = () => {
                     </div>
                 </div>
 
-                {/* Costs Grid - keep existing structure but update styling */}
+                {/* Costs Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* ... existing grid content ... */}
+                    {/* Operational Costs */}
+                    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <div className="p-6 bg-gradient-to-b from-slate-50/50">
+                            <h2 className="text-xl font-bold text-slate-800 mb-6">Operational Costs</h2>
+                            <div className="space-y-4">
+                                {operationalCosts.map((item) => (
+                                    <div key={item.name}
+                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all duration-200">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
+                                            <span className="font-medium text-slate-700">{item.name}</span>
+                                        </div>
+                                        <div className="flex gap-4 items-center">
+                                            <span className="font-medium text-slate-700">${item.servingCost.toFixed(3)}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Ingredient Costs */}
+                    <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+                        <div className="p-6 bg-gradient-to-b from-slate-50/50">
+                            <h2 className="text-xl font-bold text-slate-800 mb-6">Ingredients</h2>
+                            <div className="space-y-4">
+                                {ingredientCosts.map((item) => (
+                                    <div key={item.name}
+                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border border-slate-100 hover:border-slate-200 hover:shadow-sm transition-all duration-200">
+                                        <div className="flex items-center gap-3">
+                                            <div className="w-3 h-3 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
+                                            <span className="font-medium text-slate-700">{item.name}</span>
+                                        </div>
+                                        <div className="flex gap-4 items-center">
+                                            <span className="font-medium text-slate-700">${item.servingCost.toFixed(3)}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 {/* Chart Section */}
@@ -122,3 +162,5 @@ const CheeseburgerDashboard = () => {
         </div>
     );
 };
+
+export default CheeseburgerDashboard;
