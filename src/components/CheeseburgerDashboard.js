@@ -74,7 +74,7 @@ const CheeseburgerDashboard = () => {
     );
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-red-900 via-red-800 to-red-900">
+        <div className="min-h-screen bg-gradient-to-br from-amber-600 via-amber-500 to-amber-600">
             {/* Hero Section */}
             <div className="w-full text-center pt-8 pb-6 md:pt-12 md:pb-8">
                 <div className="text-7xl md:text-8xl mb-4 animate-bounce">🍔</div>
