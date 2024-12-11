@@ -105,14 +105,13 @@ const CheeseburgerDashboard = () => {
                 </div>
 
                 {/* Chart Section */}
-                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg p-4 h-[800px]">
-                    <div className="w-full h-full">
+                <div className="bg-white/95 backdrop-blur-sm rounded-2xl shadow-lg">
+                    <div className="w-full h-[650px]">
                         <PriceTrendChart />
                     </div>
                 </div>
-
-                {/* CTA Button */}
-                <div className="flex justify-center">
+                {/* Button Section */}
+                <div className="flex justify-center py-6">
                     <Link
                         href="/cheezburgz"
                         className="group inline-flex items-center gap-2 bg-white text-red-900 px-8 py-4 rounded-xl font-semibold hover:bg-orange-50 transition-all text-xl shadow-lg hover:shadow-xl"
@@ -122,7 +121,7 @@ const CheeseburgerDashboard = () => {
                     </Link>
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 
