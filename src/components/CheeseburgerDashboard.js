@@ -5,14 +5,14 @@ import Link from "next/link";
 import PriceTrendChart from './priceTrendChart.tsx';
 
 const COLORS = {
-    'Ground Beef': '#8B4513',    // Rich Brown
-    'American Cheese': '#FFC107', // Golden Yellow
-    'Lettuce': '#90EE90',        // Lettuce Green
-    'Tomato': '#FF6B6B',         // Tomato Red
-    'Hamburger Bun': '#FFD54F',   // Mustard Yellow
-    'Labor': '#4682B4',          // Blue
-    'Supply Chain Fuel': '#464646', // Gray
-    'Cooking Energy': '#FF6B6B'    // Tomato Red
+    'Ground Beef': '#8B4513',
+    'American Cheese': '#FFC107',
+    'Lettuce': '#90EE90',
+    'Tomato': '#FF6B6B',
+    'Hamburger Bun': '#FFD54F',
+    'Labor': '#4682B4',
+    'Supply Chain Fuel': '#464646',
+    'Cooking Energy': '#FF6B6B'
 };
 
 const CheeseburgerDashboard = () => {
@@ -38,9 +38,9 @@ const CheeseburgerDashboard = () => {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-amber-100 p-4 md:p-8">
+            <div className="min-h-screen bg-amber-100 px-2 md:p-8">
                 <div className="w-full animate-pulse">
-                    <div className="h-48 bg-amber-200 rounded-2xl mb-8"></div>
+                    <div className="h-48 bg-amber-200 rounded-2xl mb-4"></div>
                     <div className="h-96 bg-amber-200 rounded-2xl"></div>
                 </div>
             </div>
@@ -49,10 +49,10 @@ const CheeseburgerDashboard = () => {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-amber-100 p-4 md:p-8">
+            <div className="min-h-screen bg-amber-100 px-2 md:p-8">
                 <div className="w-full">
                     <div className="bg-red-100 border-2 border-red-400 rounded-2xl p-6">
-                        <p className="text-red-600">Error: {error}</p>
+                        <p className="text-red-600 text-lg">Error: {error}</p>
                     </div>
                 </div>
             </div>
@@ -75,52 +75,49 @@ const CheeseburgerDashboard = () => {
 
     return (
         <div className="min-h-screen bg-amber-100 bg-[url('/checkered-pattern.png')] bg-repeat">
-            {/* Hero Section */}
-            <div className="w-full text-center pt-12 pb-8 bg-amber-100/90">
-                <div className="text-7xl mb-4 animate-bounce">🍔</div>
-                <h1 className="text-4xl md:text-5xl font-bold text-[#8B4513] mb-2">
+            {/* Hero Section - Increased mobile text sizes */}
+            <div className="w-full text-center pt-8 pb-6 md:pt-12 md:pb-8 bg-amber-100/90">
+                <div className="text-7xl md:text-8xl mb-4 animate-bounce">🍔</div>
+                <h1 className="text-5xl md:text-6xl font-bold text-[#8B4513] mb-3">
                     The Cheeseburger Index
                 </h1>
-                <p className="text-gray-800 text-lg">
+                <p className="text-gray-800 text-xl md:text-2xl px-4">
                     The Real Price of Happiness in a Bun
                 </p>
             </div>
 
-            <div className="w-full p-4 md:p-8 space-y-8">
-                {/* Price Container */}
+            <div className="w-full px-2 md:p-8 space-y-4 md:space-y-8">
+                {/* Price Container - Adjusted mobile padding */}
                 <div className="bg-amber-50 rounded-2xl shadow-lg border-2 border-amber-200 overflow-hidden">
-                    <div className="bg-gradient-to-r from-amber-200/50 to-yellow-200/50 p-8 md:p-12">
+                    <div className="bg-gradient-to-r from-amber-200/50 to-yellow-200/50 p-6 md:p-12">
                         <div className="flex justify-center">
                             <div className="bg-white rounded-xl shadow-lg border-2 border-amber-300 p-6 inline-flex flex-col items-center">
-                                <div className="text-4xl font-bold text-[#8B4513]">${totalCost.toFixed(2)}</div>
-                                <div className="text-base text-gray-800">Today&apos;s Burger Cost</div>
+                                <div className="text-5xl md:text-6xl font-bold text-[#8B4513]">${totalCost.toFixed(2)}</div>
+                                <div className="text-lg md:text-xl text-gray-800">Today&apos;s Burger Cost</div>
                             </div>
                         </div>
                         <div className="text-center mt-6">
-                            <p className="text-gray-700 font-medium">
+                            <p className="text-gray-700 font-medium text-lg">
                                 Prices fresh from the Federal Reserve&apos;s grill
                             </p>
                         </div>
                     </div>
                 </div>
 
-                {/* Costs Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    {/* Menu Board Style Panels */}
+                {/* Costs Grid - Reduced gap on mobile */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
                     <div className="bg-amber-50 rounded-2xl shadow-lg border-2 border-amber-200 overflow-hidden">
-                        <div className="p-6">
-                            <h2 className="text-2xl font-bold text-[#8B4513] mb-6">Daily Operations</h2>
-                            <div className="space-y-4">
+                        <div className="p-4 md:p-6">
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#8B4513] mb-4 md:mb-6">Daily Operations</h2>
+                            <div className="space-y-3 md:space-y-4">
                                 {operationalCosts.map((item) => (
                                     <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border-2 border-amber-200 hover:border-amber-300 hover:shadow-md transition-all duration-200">
+                                        className="group flex items-center justify-between p-3 md:p-4 bg-white rounded-xl border-2 border-amber-200 hover:border-amber-300 hover:shadow-md transition-all duration-200">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-4 h-4 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-gray-800 text-lg">{item.name}</span>
+                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
+                                            <span className="font-medium text-gray-800 text-lg md:text-xl">{item.name}</span>
                                         </div>
-                                        <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-gray-800 text-lg">${item.servingCost.toFixed(3)}</span>
-                                        </div>
+                                        <span className="font-medium text-gray-800 text-lg md:text-xl">${item.servingCost.toFixed(3)}</span>
                                     </div>
                                 ))}
                             </div>
@@ -128,19 +125,17 @@ const CheeseburgerDashboard = () => {
                     </div>
 
                     <div className="bg-amber-50 rounded-2xl shadow-lg border-2 border-amber-200 overflow-hidden">
-                        <div className="p-6">
-                            <h2 className="text-2xl font-bold text-[#8B4513] mb-6">Today&apos;s Ingredients</h2>
-                            <div className="space-y-4">
+                        <div className="p-4 md:p-6">
+                            <h2 className="text-2xl md:text-3xl font-bold text-[#8B4513] mb-4 md:mb-6">Today&apos;s Ingredients</h2>
+                            <div className="space-y-3 md:space-y-4">
                                 {ingredientCosts.map((item) => (
                                     <div key={item.name}
-                                        className="group flex items-center justify-between p-4 bg-white rounded-xl border-2 border-amber-200 hover:border-amber-300 hover:shadow-md transition-all duration-200">
+                                        className="group flex items-center justify-between p-3 md:p-4 bg-white rounded-xl border-2 border-amber-200 hover:border-amber-300 hover:shadow-md transition-all duration-200">
                                         <div className="flex items-center gap-3">
-                                            <div className="w-4 h-4 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
-                                            <span className="font-medium text-gray-800 text-lg">{item.name}</span>
+                                            <div className="w-4 h-4 md:w-5 md:h-5 rounded-full" style={{ backgroundColor: COLORS[item.name] }} />
+                                            <span className="font-medium text-gray-800 text-lg md:text-xl">{item.name}</span>
                                         </div>
-                                        <div className="flex gap-4 items-center">
-                                            <span className="font-medium text-gray-800 text-lg">${item.servingCost.toFixed(3)}</span>
-                                        </div>
+                                        <span className="font-medium text-gray-800 text-lg md:text-xl">${item.servingCost.toFixed(3)}</span>
                                     </div>
                                 ))}
                             </div>
@@ -148,16 +143,17 @@ const CheeseburgerDashboard = () => {
                     </div>
                 </div>
 
+                {/* Chart Container - Removed vertical padding constraints */}
                 <div className="bg-amber-50 rounded-2xl shadow-lg border-2 border-amber-200 w-full overflow-hidden">
-                    <div className="w-full">
+                    <div className="w-full h-[500px] md:h-[650px]">
                         <PriceTrendChart />
                     </div>
                 </div>
 
-                <div className="flex justify-center pt-8">
+                <div className="flex justify-center pt-6 md:pt-8 pb-8">
                     <Link
                         href="/cheezburgz"
-                        className="group relative inline-flex items-center gap-2 bg-[#FF6B6B] hover:bg-[#FF8B8B] text-white px-8 py-4 rounded-xl font-semibold transition-colors text-lg shadow-lg hover:shadow-xl border-2 border-red-300"
+                        className="group relative inline-flex items-center gap-2 bg-[#FF6B6B] hover:bg-[#FF8B8B] text-white px-6 py-4 md:px-8 rounded-xl font-semibold transition-colors text-lg md:text-xl shadow-lg hover:shadow-xl border-2 border-red-300"
                     >
                         Learn about Cheezburgz Token
                         <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
